@@ -1,1 +1,0 @@
-"¿Esto se sube a mi rama?"
