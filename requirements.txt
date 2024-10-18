@@ -1,3 +1,4 @@
+'''Aqui vamos a ir especificando las bibliotecas que necesitamos'''
 Flask
 pandas
 plotly
