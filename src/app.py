@@ -1,6 +1,7 @@
 '''Este es main y es donde vamos a escribir el código de nuestra app'''
 
 import pandas as pd
+
 import plotly.express as px
 
 
@@ -25,3 +26,4 @@ fig = px.pie(
 ##FIGURA GENERADA COMO OBJETO HTML##
 ##ESTE OBJETO ES EL QUE QUEREMOS INSERTAR EN EL VISUALIZADOR##
 fig.show()
+
