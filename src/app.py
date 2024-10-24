@@ -27,5 +27,4 @@ fig = px.pie(
 ##ESTE OBJETO ES EL QUE QUEREMOS INSERTAR EN EL VISUALIZADOR##
 fig.show()
 
-"Este archivo es el modificado???"
-
+#Estoy reconectandome pipipi
