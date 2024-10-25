@@ -27,21 +27,24 @@ def upload_form():
 @app.route('/upload', methods=['POST'])
 
 def upload_file():
+    file = request.files['file']
+    """
     if 'file' not in request.files:
         return 'No file part'  # Error si no se adjuntó archivo
 
-    file = request.files['file']
+    
 
     if file.filename == '':
         return 'No selected file'  # Error si no se seleccionó archivo
+    """
+    #No es necesario este bloque porque el input es requerido en el html
+    #if file and file.filename.endswith('.csv'):
 
-    if file and file.filename.endswith('.csv'):
+    df = pd.read_csv(file)
+    print(df)
+    conteo_colores = df['color'].value_counts()
 
-        df = pd.read_csv(file)
-
-        conteo_colores = df['color'].value_counts()
-
-        fig = px.pie(
+    fig = px.pie(
             values = conteo_colores,
             names = conteo_colores.index,
             title = 'Aquí va un Title',
@@ -51,10 +54,10 @@ def upload_file():
 
         ##FIGURA GENERADA COMO OBJETO HTML##
         ##ESTE OBJETO ES EL QUE QUEREMOS INSERTAR EN EL VISUALIZADOR##
-        graph_html = pio.to_html(fig, full_html=False)
-        return render_template('graph.html', graph_html=graph_html)
+    graph_html = pio.to_html(fig, full_html=False)
+    return render_template('graph.html', graph_html=graph_html)
     
-    return 'El archivo debe ser un archivo CSV (.csv)'
+    #return 'El archivo debe ser un archivo CSV (.csv)'
 
 
 if __name__ == '__main__':
